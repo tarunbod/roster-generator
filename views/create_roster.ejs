@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Roster</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Tarun Boddupalli">
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/skeleton.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/date.js"></script>
+    <script src="/js/ejs.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <br><br>
+        <div class="row">
+            <div class="six columns offset-by-three">
+                <h6><a href="/">Home</a></h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns offset-by-three">
+                <h1>Roster</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns offset-by-three">
+                <h3>Select a month:</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="four columns offset-by-four center">
+                <select id="month-picker">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <input class="u-full-width" id="year-picker" type="number" value="<%= new Date().getFullYear() %>">
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns offset-by-three main-buttons-col">
+                <button id="gen-button" class="button button-primary" onclick="generate();">Generate</button>
+            </div>
+        </div>
+        <div class="row" id="roster"></div>
+    </div>
+
+    <script type="text/javascript">
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/template/roster.ejs', false);
+        xhr.send();
+        var rosterTemplate = xhr.response;
+
+        var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        var DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var SHIFTS = ["Morning", "Noon", "Night"];
+
+        var yearPicker = document.getElementById('year-picker');
+        var monthPicker = document.getElementById('month-picker');
+        monthPicker.children[new Date().getMonth()].selected = true;
+
+        Date.getDaysInMonth = function (year, month) {
+            return [31, (Date.isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+        };
+
+        Date.isLeapYear = function (year) {
+            return ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0);
+        };
+
+        function generate() {
+            var year = yearPicker.value;
+            var month = parseInt(monthPicker.value);
+            var days = Date.getDaysInMonth(year, month - 1);
+            var data = {};
+            for (var i = 0; i < days; i++) {
+                var day = DAYS[new Date(year, month - 1, i + 1).getDay()];
+                var date = i + 1;
+                var obj = {
+                    num: date,
+                    name: day
+                };
+                SHIFTS.forEach((shift) => {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('GET', '/roster_data?day=' + day + '&shift=' + shift, false);
+                    xhr.send();
+                    var res = JSON.parse(xhr.response);
+                    var names = [];
+                    for (var j = 0; j < res.length; j++) {
+                        names.push(res[j].name);
+                    }
+                    obj[shift] = names;
+                });
+                data[date] = obj;
+            }
+            html = ejs.render(rosterTemplate, {
+                data: data,
+                month: MONTHS[month - 1],
+                year: year
+            });
+            document.getElementById('roster').innerHTML = html;
+        }
+    </script>
+</body>
+</html>

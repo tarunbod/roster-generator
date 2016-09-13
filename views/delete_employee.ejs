@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Roster</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Tarun Boddupalli">
+    <link rel='stylesheet' href='css/normalize.css' />
+    <link rel='stylesheet' href='css/skeleton.css' />
+    <link rel='stylesheet' href='css/style.css' />
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="row">
+                <div class="six columns offset-by-three">
+                    <h1>Delete Employee</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns offset-by-three">
+                    <h5>Are you sure you want to delete this employee?</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <table class="u-full-width">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Days Off</th>
+                                <th>Shifts</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><%= employee.id %></td>
+                                <td><%= employee.name %></td>
+                                <td><%= employee.days_off %></td>
+                                <td><%= employee.shifts %></td>
+                            <tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns offset-by-three main-buttons-col">
+                    <form method="post">
+                        <input type="text" hidden="true" value="<%= employee.id %>" name="id">
+                        <button type="submit" class="button button-primary">yes</button>
+                    </form>
+                    <a href="/manage_employees" class="button button-primary">no</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

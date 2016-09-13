@@ -1,0 +1,33 @@
+<div class="twelve columns">
+    <table class="u-full-width">
+        <thead>
+            <tr>
+                <% for (var day in data) { %>
+                    <th><%= data[day].num + '-' + month.substring(0, 3) + '-' + year %></th>
+                <% } %>
+            </tr>
+            <tr>
+                <% for (var day in data) { %>
+                    <th><%= data[day].name %></th>
+                <% } %>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <% for (var day in data) { %>
+                <td><%= data[day]['Morning'].join('\n') %></td>
+            <% } %>
+            </tr>
+            <tr>
+            <% for (var day in data) { %>
+                <td><%= data[day]['Noon'].join('\n') %></td>
+            <% } %>
+            </tr>
+            <tr>
+            <% for (var day in data) { %>
+                <td><%= data[day]['Night'].join('\n') %></td>
+            <% } %>
+            </tr>
+        </tbody>
+    </table>
+</div>

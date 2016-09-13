@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Roster</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Tarun Boddupalli">
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/skeleton.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="row">
+                <div class="six columns offset-by-three">
+                    <h1>Welcome</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns offset-by-three">
+                    <h2>Select an option:</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns offset-by-three main-buttons-col">
+                    <a href="/manage_employees" class="button button-primary">Manage Employees</a>
+                    <a href="/create_roster" class="button button-primary">Create Roster</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="six columns offset-by-three main-buttons-col">
+                    <button onclick="confirmStop();" class="button button-danger">Stop Roster System</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function confirmStop() {
+            var result = confirm("Are you sure you want to stop the roster system?");
+            if (result) {
+                location.href = "/stop";
+            }
+        }
+    </script>
+</body>
+</html>

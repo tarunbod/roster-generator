@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Roster</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Tarun Boddupalli">
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/skeleton.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://use.fontawesome.com/bab3e94b5f.js"></script>
+</head>
+<body>
+    <br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="six columns offset-by-three">
+                <h6><a href="/">Home</a></h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns offset-by-three">
+                <h1>Manage Employees</h1>
+            </div>
+        </div>
+        <% if (rows.length !== 0) { %>
+        <div class="row">
+            <div class="twelve columns">
+                <table class="u-full-width">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Days Off</th>
+                            <th>Shifts</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (var i = 0; i < rows.length; i++) { %>
+                        <tr>
+                            <td><%= rows[i].id %></td>
+                            <td><%= rows[i].name %></td>
+                            <td><%= rows[i].days_off.replace('|', ', ') %></td>
+                            <td><%= rows[i].shifts %></td>
+                            <td>
+                                <a href="/edit_employee?id=<%=rows[i].id%>">
+                                    <i class="fa fa-pencil-square-o fa-2x text-button" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="/delete_employee?id=<%=rows[i].id%>">
+                                    <i class="fa fa-minus-circle fa-2x text-button" aria-hidden="true" style="color: red;"></i>
+                                </a>
+                            </td>
+                        <tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <% } else { %>
+        <div class="row">
+            <div class="six columns offset-by-three">
+                <br>
+                <h5 class="gray">No employees exist in the records. <a href="/add_employee">Add one</a> now.</h5>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</body>
+</html>

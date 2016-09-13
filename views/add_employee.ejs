@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Roster</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Tarun Boddupalli">
+    <link rel='stylesheet' href='css/normalize.css' />
+    <link rel='stylesheet' href='css/skeleton.css' />
+    <link rel='stylesheet' href='css/style.css' />
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="row">
+                <div class="six columns offset-by-three">
+                    <h1>Add an employee</h1>
+                </div>
+            </div>
+            <form method="post" action="/add_employee">
+                <div class="row">
+                    <div class="six columns">
+                        <label class="right" for="name">Name</label>        
+                    </div>
+                    <div class="six columns">
+                        <input type="text" id="name" name="name" placeholder="Name"><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="six columns">
+                        <label class="right" for="daysoff">Days Off</label>        
+                    </div>
+                    <div class="six columns">
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <input type="checkbox" name="Monday">
+                                    <span class="label-body">Monday</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <input type="checkbox" name="Tuesday">
+                                    <span class="label-body">Tuesday</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <input type="checkbox" name="Wednesday">
+                                    <span class="label-body">Wednesday</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <input type="checkbox" name="Thursday">
+                                    <span class="label-body">Thursday</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <input type="checkbox" name="Friday">
+                                    <span class="label-body">Friday</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <input type="checkbox" name="Saturday">
+                                    <span class="label-body">Saturday</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <input type="checkbox" name="Sunday">
+                                    <span class="label-body">Sunday</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+                <div class="row">
+                    <div class="six columns">
+                        <label class="right" for="shifts">Shifts</label>
+                    </div>
+                    <div class="six columns">
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <input type="checkbox" name="Morning">
+                                    <span class="label-body">Morning</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <input type="checkbox" name="Noon">
+                                    <span class="label-body">Noon</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <input type="checkbox" name="Night">
+                                    <span class="label-body">Night</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="six columns offset-by-three submit-container">
+                        <button class="button-primary" type="submit">ADD</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

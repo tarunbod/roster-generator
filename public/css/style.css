@@ -1,0 +1,39 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    padding-bottom: 100px;
+}
+
+h1, h2, h3, h4, h5, h6, .main-buttons-col, .submit-container {
+    text-align: center;
+}
+
+.gray {
+    color: gray;
+}
+
+label.right {
+    padding-top: 7px;
+    text-align: right;
+}
+
+.text-button {
+    opacity: 0.6;
+}
+
+.text-button:hover {
+    opacity: 1;
+}

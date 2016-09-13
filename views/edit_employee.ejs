@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Roster</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Tarun Boddupalli">
+    <link rel='stylesheet' href='css/normalize.css' />
+    <link rel='stylesheet' href='css/skeleton.css' />
+    <link rel='stylesheet' href='css/style.css' />
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="row">
+                <div class="six columns offset-by-three">
+                    <h1>Edit employee</h1>
+                </div>
+            </div>
+            <form method="post" action="/edit_employee">
+                <input type="text" hidden="true" name="id" value="<%= employee.id %>">
+                <div class="row">
+                    <div class="six columns">
+                        <label class="right" for="name">Name</label>        
+                    </div>
+                    <div class="six columns">
+                        <input type="text" id="name" name="name" placeholder="Name" value="<%= employee.name %>"><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="six columns">
+                        <label class="right">Days Off</label>        
+                    </div>
+                    <div class="six columns">
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <% if (employee.days_off.match(/Monday/g)) { %>
+                                    <input type="checkbox" name="Monday" checked="true">
+                                    <% } else { %>
+                                    <input type="checkbox" name="Monday">
+                                    <% } %>
+                                    <span class="label-body">Monday</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <% if (employee.days_off.match(/Tuesday/g)) { %>
+                                    <input type="checkbox" name="Tuesday" checked="true">
+                                    <% } else { %>
+                                    <input type="checkbox" name="Tuesday">
+                                    <% } %>
+                                    <span class="label-body">Tuesday</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <% if (employee.days_off.match(/Wednesday/g)) { %>
+                                    <input type="checkbox" name="Wednesday" checked="true">
+                                    <% } else { %>
+                                    <input type="checkbox" name="Wednesday">
+                                    <% } %>
+                                    <span class="label-body">Wednesday</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <% if (employee.days_off.match(/Thursday/g)) { %>
+                                    <input type="checkbox" name="Thursday" checked="true">
+                                    <% } else { %>
+                                    <input type="checkbox" name="Thursday">
+                                    <% } %>
+                                    <span class="label-body">Thursday</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <% if (employee.days_off.match(/Friday/g)) { %>
+                                    <input type="checkbox" name="Friday" checked="true">
+                                    <% } else { %>
+                                    <input type="checkbox" name="Friday">
+                                    <% } %>
+                                    <span class="label-body">Friday</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <% if (employee.days_off.match(/Saturday/g)) { %>
+                                    <input type="checkbox" name="Saturday" checked="true">
+                                    <% } else { %>
+                                    <input type="checkbox" name="Saturday">
+                                    <% } %>
+                                    <span class="label-body">Saturday</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <% if (employee.days_off.match(/Sunday/g)) { %>
+                                    <input type="checkbox" name="Sunday" checked="true">
+                                    <% } else { %>
+                                    <input type="checkbox" name="Sunday">
+                                    <% } %>
+                                    <span class="label-body">Sunday</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br>
+                <div class="row">
+                    <div class="six columns">
+                        <label class="right" for="shifts">Shifts</label>
+                    </div>
+                    <div class="six columns">
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <% if (employee.shifts.match(/Morning/g)) { %>
+                                    <input type="checkbox" name="Morning" checked="true">
+                                    <% } else { %>
+                                    <input type="checkbox" name="Morning">
+                                    <% } %>
+                                    <span class="label-body">Morning</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <% if (employee.shifts.match(/Noon/g)) { %>
+                                    <input type="checkbox" name="Noon" checked="true">
+                                    <% } else { %>
+                                    <input type="checkbox" name="Noon">
+                                    <% } %>
+                                    <span class="label-body">Noon</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label>
+                                    <% if (employee.shifts.match(/Night/g)) { %>
+                                    <input type="checkbox" name="Night" checked="true">
+                                    <% } else { %>
+                                    <input type="checkbox" name="Night">
+                                    <% } %>
+                                    <span class="label-body">Night</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="six columns offset-by-three submit-container">
+                        <button class="button-primary" type="submit">DONE</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
