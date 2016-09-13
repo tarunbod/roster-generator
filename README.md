@@ -5,7 +5,7 @@ Well my client did. SO I made this for him.
 
 ## How to use
 - Clone this repo
-- `npm install`[H[C[C[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[B[C$npm install`
+- `$ npm install`
 - `$ node app.js`
 - Go to `http://localhost:8080`
 
@@ -18,4 +18,4 @@ Navigate back to the homepage, then click on "Create Roster"
 Choose the month and year for which you want to generate it for (by default it will be the current month and year).
 Click generate, and a (big) table will appear on the bottom. You can then copy this into excel or any other spreadsheet program of your choosing.
 
-Have fHave fun!
+Have fun!
